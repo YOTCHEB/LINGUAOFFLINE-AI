@@ -32,7 +32,7 @@ Each team has a dedicated scope and deliverables.
 ## 🔹 **Team 1 — Text Dataset Team**
 **Folder:** `/dataset/text/`  
 **Responsibilities:**
-- Collect English ↔ Chichewa ↔ French parallel sentences.
+- Collect English ↔ Chichewa ↔ French ↔ Kirundi ↔ Kinyarwanda ↔ Lwahili ↔ Lingala parallel sentences.
 - Minimum: **300–500 cleaned sentence pairs.**
 - Format as:
   - CSV: `source_lang`, `target_lang`, `sentence`
@@ -50,7 +50,7 @@ Each team has a dedicated scope and deliverables.
 ## 🔹 **Team 2 — Audio Dataset Team**
 **Folder:** `/dataset/audio/`  
 **Responsibilities:**
-- Gather or record audio samples in EN, NY, FR.
+- Gather or record audio samples in EN, NY, FR , KY , SW , LN , KR.
 - Convert all audio to **16 kHz WAV**.
 - Produce short samples: 3–6 seconds each.
 - Provide transcriptions in a `.txt` file.
@@ -121,7 +121,7 @@ Each team has a dedicated scope and deliverables.
   - selecting languages
   - showing translation
   - recording audio (mock or real)
-- Must work offline (pure HTML/CSS/JS).
+- Must work offline (pure React.vite).
 
 **Deliverables:**
 - `index.html`
