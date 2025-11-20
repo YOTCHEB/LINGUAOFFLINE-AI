@@ -1,25 +1,35 @@
 import React, {useState} from 'react'
+import { Routes, Route, NavLink } from 'react-router-dom'
+import LoadingScreen from './components/LoadingScreen'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Translation from './pages/Translation'
 
 export default function App(){
-  const [text, setText] = useState('')
-  const [out, setOut] = useState('')
-
-  function simulateTranslate(){
-    setOut(`Translated: ${text}`)
-  }
+  const [loadingDone, setLoadingDone] = useState(false)
 
   return (
-    <div className="app">
-      <h1>LinguaOffline Demo</h1>
-      <textarea value={text} onChange={e=>setText(e.target.value)} placeholder="Type text here" />
-      <div className="controls">
-        <select>
-          <option value="en-mw">EN → MW</option>
-          <option value="en-fr">EN → FR</option>
-        </select>
-        <button onClick={simulateTranslate}>Translate</button>
-      </div>
-      <pre className="output">{out}</pre>
+    <div className="app-wrapper bg-slate-50 min-h-screen">
+      {!loadingDone && <LoadingScreen onFinish={()=>setLoadingDone(true)} />}
+
+      <header className="bg-white shadow">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-6">
+          <div className="text-teal-600 font-extrabold text-xl">LinguaOffline</div>
+          <nav className="flex gap-3 ml-4">
+            <NavLink to="/" className={({isActive})=>isActive? 'text-teal-600 font-semibold' : 'text-slate-600'}>Translate</NavLink>
+            <NavLink to="/about" className={({isActive})=>isActive? 'text-teal-600 font-semibold' : 'text-slate-600'}>About</NavLink>
+            <NavLink to="/contact" className={({isActive})=>isActive? 'text-teal-600 font-semibold' : 'text-slate-600'}>Contact</NavLink>
+          </nav>
+        </div>
+      </header>
+
+      <main className="flex-1 py-6">
+        <Routes>
+          <Route path="/" element={<Translation/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
+        </Routes>
+      </main>
     </div>
   )
 }
