@@ -1,0 +1,4 @@
+body{font-family:system-ui,Arial;margin:20px}
+.app textarea{width:100%;height:100px}
+.controls{margin-top:8px}
+.output{background:#f7f7f7;padding:12px;margin-top:12px}
